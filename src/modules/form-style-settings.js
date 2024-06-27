@@ -1,18 +1,25 @@
 export function setFormStyleSettings() {
   const form = document.getElementById('credit-card-form')
-  form.style.minWidth = '300px'
+  const button = document.getElementById('submit-button')
 
-  const labelText = document.querySelectorAll('.form-field-label')
-  const validationText = document.querySelectorAll('.form-field-validation')
+  const labelTextArr = document.querySelectorAll('.form-field-label')
+  const validationTextArr = document.querySelectorAll('.form-field-validation')
 
-  labelText.forEach(label => {
+  //add some styles
+  labelTextArr.forEach(label => {
+    label.parentElement.querySelector('input').style.width = '70%'
+    label.parentElement.style.marginBottom = '10px'
+    label.parentElement.style.width = '100%'
     label.style.marginBottom = '5px'
     label.style.fontSize = '20px'
-    label.parentElement.style.marginBottom = '10px'
   })
 
-  validationText.forEach(error => {
+  validationTextArr.forEach(error => {
     error.style.color = 'red'
     error.style.fontSize = '20px'
   })
+
+  //add some styles
+  form.style.minWidth = '400px'
+  button.disabled = true
 }

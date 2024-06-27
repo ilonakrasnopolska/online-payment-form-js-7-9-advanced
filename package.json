@@ -9,6 +9,7 @@
   "author": "Ilona",
   "dependencies": {
     "@forms.js/core": "^1.1.7",
+    "inputmask": "^5.0.9",
     "redom": "~4.1.5",
     "validator": "^13.12.0"
   },
