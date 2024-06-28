@@ -41,3 +41,26 @@ export function validateEmail(value, data, required) {
   if (!validator.isEmail(value)) return 'Enter a valid email address'
   return true
 }
+
+// Function to check all fields validity
+export function areAllFieldsValid(fields) {
+  const fieldsArray = Array.from(fields)
+
+  return fieldsArray.every(field => {
+    const { id, value, dataset } = field // Деструктурируем dataset для получения required
+    const required = dataset.required === 'true' // Преобразуем строку 'true' в булевое значение
+
+    switch (id) {
+      case 'card-number':
+        return validateCreditCard(value, null, required) === true // Передаем required в validateCreditCard
+      case 'card-expiry-date':
+        return validateExpiryDate(value, null, required) === true // Передаем required в validateExpiryDate
+      case 'card-cvc':
+        return validateCVC(value, null, required) === true // Передаем required в validateCVC
+      case 'user-email':
+        return validateEmail(value, null, required) === true // Передаем required в validateEmail
+      default:
+        return true
+    }
+  });
+}

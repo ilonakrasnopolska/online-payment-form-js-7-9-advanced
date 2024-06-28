@@ -2,6 +2,7 @@ import {validateCreditCard,
   validateExpiryDate,
   validateCVC,
   validateEmail} from "./helpers/validate.js"
+import {addEventListenersToButton} from "./helpers/submitButton.js"
 
 export const options = {
   id: "credit-card-form",
@@ -49,6 +50,11 @@ export const options = {
       buttonType: "submit",
       template: "To pay",
       className: "btn btn-dark btn-lg",
+      // click:()=>{
+      //   addEventListenersToButton()
+      //   const form = document.getElementById('credit-card-form')
+      //   form.reset()
+      // },
     }
   ],
 }

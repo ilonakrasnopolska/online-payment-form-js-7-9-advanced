@@ -1,7 +1,5 @@
 export function setFormStyleSettings() {
   const form = document.getElementById('credit-card-form')
-  const button = document.getElementById('submit-button')
-
   const labelTextArr = document.querySelectorAll('.form-field-label')
   const validationTextArr = document.querySelectorAll('.form-field-validation')
 
@@ -21,5 +19,4 @@ export function setFormStyleSettings() {
 
   //add some styles
   form.style.minWidth = '400px'
-  button.disabled = true
 }

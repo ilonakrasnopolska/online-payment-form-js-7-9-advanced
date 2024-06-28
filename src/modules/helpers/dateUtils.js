@@ -14,5 +14,5 @@ export function isValidDate(value) {
   if (year < currentYear || (year === currentYear && month < currentMonth)) {
     return 'Enter a date greater than the current date'
   }
-
+  return true
 }
