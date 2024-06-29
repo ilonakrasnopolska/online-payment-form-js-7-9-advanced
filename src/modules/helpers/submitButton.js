@@ -6,11 +6,12 @@ export function updateSubmitButtonState(inputsArr, submitButton) {
   console.log(submitButton.disabled)
 }
 
-export function addEventListenersToButton() {
-  const form = document.getElementById('credit-card-form')
+export function resetFormByClick(form) {
   const submitButton = document.getElementById('submit-button')
-  submitButton.addEventListener("click", (e) => {
-    e.preventDefault()
-    console.log('Congratulations submitted!')
-  })
+  submitButton.addEventListener('click', function(event) {
+      event.preventDefault() // Предотвращение стандартного действия отправки формы
+
+      form.reset()
+      console.log('Congratulations submitted!')
+    })
 }

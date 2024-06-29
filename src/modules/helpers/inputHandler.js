@@ -10,22 +10,28 @@ export function addEventListenersToInputs() {
 
   // func for update button
   function validateAndUpdate() {
-    inputsArr.forEach(input => {
-      addMasksToInputs(input)
-    })
     updateSubmitButtonState(inputsArr, submitButton)
   }
 
+  // add mask's to input's
+  inputsArr.forEach(input => {
+    addMasksToInputs(input)
+  })
+
   //add event listener
-  for (let i = 0; i < inputsArr.length; i++) {
-    const input = inputsArr[i]
-    console.log(input)
-      input.addEventListener('input', validateAndUpdate) // Обработчик для изменений ввода
-      input.addEventListener('change', validateAndUpdate) // Обработчик для изменений значения поля
-      input.addEventListener('paste', validateAndUpdate) // Обработчик для вставки текста
-    }
+  inputsArr.forEach(input => {
+    // Обработчик для изменений ввода
+      input.addEventListener('input', validateAndUpdate)
+    // Обработчик для вставки текста
+      input.addEventListener('paste', event => {
+        event.preventDefault() // Предотвращаем вставку текста
+        validateAndUpdate()
+      })
+
   // Validate initially in case the form is pre-filled
   validateAndUpdate()
+})
 }
 
 
+// 5357 3862 0018 9414
