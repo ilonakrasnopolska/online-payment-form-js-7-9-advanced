@@ -18,5 +18,5 @@ export function setFormStyleSettings() {
   })
 
   //add some styles
-  form.style.minWidth = '400px'
+  form.style.minWidth = '300px'
 }

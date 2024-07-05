@@ -1,8 +1,3 @@
-import {validateCreditCard,
-  validateExpiryDate,
-  validateCVC,
-  validateEmail} from "./helpers/validate.js"
-
 export const options = {
   id: "credit-card-form",
   className: "form d-flex flex-column",
@@ -15,7 +10,6 @@ export const options = {
       required: true,
       placeholder: 'XXXX XXXX XXXX XXXX',
       pattern: "[0-9]*",
-      validation: validateCreditCard,
     },
     {
       id: "card-expiry-date",
@@ -24,7 +18,6 @@ export const options = {
       required: true,
       placeholder: "MM/YY",
       pattern: "(0[1-9]|1[0-2])/([0-9]{2})",
-      validation: validateExpiryDate,
     },
     {
       id: "card-cvc",
@@ -33,7 +26,6 @@ export const options = {
       required: true,
       placeholder: "123",
       pattern: "[0-9]{3,4}",
-      validation: validateCVC,
     },
     {
       id: "user-email",
@@ -41,7 +33,6 @@ export const options = {
       label: "Enter your email address:",
       required: true,
       placeholder: 'yourname@example.com',
-      validation: validateEmail,
     },
     {
       id: "submit-button",

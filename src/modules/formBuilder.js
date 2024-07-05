@@ -1,8 +1,8 @@
 import {Form} from "@forms.js/core"
 import {options} from "./form-options.js"
 import {setFormStyleSettings} from "./form-style-settings.js"
-import {addEventListenersToInputs} from "./helpers/inputHandler.js"
-import {resetFormByClick} from "./helpers/submitButton.js"
+import {inputValidationHandler} from "./helpers/inputHandler.js"
+import {sendFormByClick} from "./helpers/submitButton.js"
 
 export function createForm(container) {
   //create and append form
@@ -10,7 +10,7 @@ export function createForm(container) {
   //add some styles to form
   setFormStyleSettings()
   //add event listener's to input
-  addEventListenersToInputs()
+  inputValidationHandler()
   //add event listener's to button and reset form by click
-  resetFormByClick(form)
+  sendFormByClick(form)
 }

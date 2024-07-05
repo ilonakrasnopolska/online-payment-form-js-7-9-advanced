@@ -1,17 +1,17 @@
-import {areAllFieldsValid} from "./validate.js"
+import {areAllFieldsValid} from "./validator.js"
 
 export function updateSubmitButtonState(inputsArr, submitButton) {
   const areFieldsValid = areAllFieldsValid(inputsArr)
   submitButton.disabled = !areFieldsValid
-  console.log(submitButton.disabled)
 }
 
-export function resetFormByClick(form) {
+export function sendFormByClick(form) {
   const submitButton = document.getElementById('submit-button')
   submitButton.addEventListener('click', function(event) {
-      event.preventDefault() // Предотвращение стандартного действия отправки формы
+      event.preventDefault()
 
       form.reset()
-      console.log('Congratulations submitted!')
+      submitButton.disabled = true
+      alert('Congratulations submitted!')
     })
 }
