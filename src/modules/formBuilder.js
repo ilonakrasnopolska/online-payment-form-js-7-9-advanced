@@ -1,16 +1,15 @@
-import {Form} from "@forms.js/core"
-import {options} from "./form-options.js"
-import {setFormStyleSettings} from "./form-style-settings.js"
+import createForm from "./create-form.js"
 import {inputValidationHandler} from "./helpers/inputHandler.js"
 import {sendFormByClick} from "./helpers/submitButton.js"
+import {setChildren} from "redom"
+import {title} from "./helpers/createDOM-elements.js"
 
-export function createForm(container) {
+export function buildForm(container) {
   //create and append form
-  const form = new Form(container, options)
-  //add some styles to form
-  setFormStyleSettings()
-  //add event listener's to input
+  const form = createForm()
+  setChildren(container, [title, form])
+  // //add event listener's to input
   inputValidationHandler()
-  //add event listener's to button and reset form by click
+  // //add event listener's to button and reset form by click
   sendFormByClick(form)
 }

@@ -8,7 +8,7 @@ function handleBlur(event, array, button) {
   const input = event.target
   // Check value before call validation
   if (input.value.trim() !== '') {
-    if (input.id === 'card-number') {
+    if (input.id === 'cardNumber') {
       addTypeOfCreditCard(input)
     }
     const error = validateField(input.id, input.value)

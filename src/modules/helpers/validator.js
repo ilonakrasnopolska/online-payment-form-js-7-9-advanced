@@ -23,7 +23,7 @@ export function validateExpiryDate(value) {
 // func for checking CVC/CVV
 export function validateCVC(value) {
   // Check if it's a number and if length no more than 3
-  if (!validator.isNumeric(value) || !validator.isLength(value, { min: 3, max: 3 })) return 'Enter a 3 digit number'
+  if (!validator.isNumeric(value) || !validator.isLength(value, { min: 3, max: 4 })) return 'Enter 3 or 4 digit number'
   return true
 }
 
@@ -42,13 +42,13 @@ export function areAllFieldsValid(fields) {
     const { id, value } = field // Деструктурируем dataset для получения required
 
     switch (id) {
-      case 'card-number':
+      case 'cardNumber':
         return validateCreditCard(value) === true
-      case 'card-expiry-date':
+      case 'expiryDate':
         return validateExpiryDate(value) === true
-      case 'card-cvc':
+      case 'cvv':
         return validateCVC(value) === true
-      case 'user-email':
+      case 'email':
         return validateEmail(value) === true
       default:
         return true

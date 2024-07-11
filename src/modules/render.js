@@ -1,13 +1,14 @@
 import {setChildren} from "redom"
-import {container, title} from "./helpers/createDOM-elements.js"
-import {createForm} from "./formBuilder.js"
+import {main, section, container} from "./helpers/createDOM-elements.js"
+import {buildForm} from "./formBuilder.js"
 
 
 export function render() {
-  //append container to body
-  setChildren(window.document.body, [container])
-  //append title to container
-  setChildren(container, [title])
+  //append main to body
+  setChildren(window.document.body, [main])
+  //append all elements
+  setChildren(main, [section])
+  setChildren(section, [container])
   //create form
-  createForm(container)
+  buildForm(container)
 }

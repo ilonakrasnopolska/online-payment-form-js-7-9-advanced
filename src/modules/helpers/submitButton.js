@@ -1,4 +1,5 @@
 import {areAllFieldsValid} from "./validator.js"
+import {removeTypeOfCreditCard} from "./getTypeOfCreditCard.js"
 
 export function updateSubmitButtonState(inputsArr, submitButton) {
   const areFieldsValid = areAllFieldsValid(inputsArr)
@@ -12,6 +13,7 @@ export function sendFormByClick(form) {
 
       form.reset()
       submitButton.disabled = true
-      alert('Congratulations submitted!')
+      removeTypeOfCreditCard(form.querySelector('#cardNumber'))
+    alert('Congratulations submitted!')
     })
 }

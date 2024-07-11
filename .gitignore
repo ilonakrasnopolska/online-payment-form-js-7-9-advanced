@@ -8,3 +8,5 @@ dist/
 
 # Игнорировать зависимости Node.js
 node_modules/
+
+.DS_Store/

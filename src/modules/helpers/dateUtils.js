@@ -12,7 +12,7 @@ export function isValidDate(value) {
 
   // Check if the entered date is greater than the current date
   if (year < currentYear || (year === currentYear && month < currentMonth)) {
-    return 'Enter a date greater than the current date'
+    return 'Enter a valid date'
   }
   return true
 }

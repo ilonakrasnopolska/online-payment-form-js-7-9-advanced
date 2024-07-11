@@ -6,13 +6,13 @@ import {validateCreditCard,
 // Function to check a field and valid it for creating or removing error
 export function validateField(fieldId, value) {
   switch (fieldId) {
-    case 'card-number':
+    case 'cardNumber':
       return validateCreditCard(value)
-    case 'card-expiry-date':
+    case 'expiryDate':
       return validateExpiryDate(value)
-    case 'card-cvc':
+    case 'cvv':
       return validateCVC(value)
-    case 'user-email':
+    case 'email':
       return validateEmail(value)
     default:
       return null
@@ -23,9 +23,10 @@ export function validateField(fieldId, value) {
 export function displayError(fieldId, errorMessage) {
   const errorLabel = document.querySelector(`#${fieldId} + .form-field-validation`)
   if (errorLabel) {
+    errorLabel.style.color = 'red'
+    errorLabel.style.fontSize = '15px'
 
     if (typeof errorMessage === 'string') {
-      console.log(typeof errorMessage)
       // Если есть текст ошибки, устанавливаем его и показываем label
       errorLabel.textContent = errorMessage
       errorLabel.style.display = 'block'

@@ -33,7 +33,26 @@ export function addImgByCardType(cardType) {
    if(img) {
      img.style.width = '30px'
      img.style.position = 'absolute'
-     img.style.right = '95px'
-     img.style.top = '38px'
+     img.style.right = '120px'
+     img.style.top = '40px'
+     if(img.alt === 'Visa') {
+       img.style.top = '49px'
+     }
+     if(img.alt === 'American Express') {
+       img.style.width = '25px'
+     }
    }
  }
+
+//get image by card type for adding to form
+export function getCardTypeImageElement(cardType, el) {
+  const { src, alt } = addImgByCardType(cardType)
+  const imgElement = el('img.me-2', {
+    src,
+    alt,
+    id: 'credit-card-type-icon'
+  })
+  imgElement.style.width = '50px'
+  imgElement.style.height = '20px'
+  return imgElement
+}
