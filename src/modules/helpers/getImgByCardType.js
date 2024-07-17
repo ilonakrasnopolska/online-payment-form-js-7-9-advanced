@@ -50,7 +50,7 @@ export function getCardTypeImageElement(cardType, el) {
   const imgElement = el('img.me-2', {
     src,
     alt,
-    id: 'credit-card-type-icon'
+    // id: 'credit-card-type-icon'
   })
   imgElement.style.width = '50px'
   imgElement.style.height = '20px'
