@@ -1,13 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin")
-const path = require('path')
 
 module.exports = (env) => ({
   entry: './src/index.js',
   output: {
-    // path: path.resolve(__dirname, './dist'),
     filename: 'main.[contenthash].js',
+    publicPath: "/"
   },
   module: {
     rules: [
@@ -48,12 +47,7 @@ module.exports = (env) => ({
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin(
-      {
-        template: path.resolve(__dirname, 'index.html'),
-        filename: 'index.[contenthash].html',
-      }
-    ),
+    new HtmlWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'main.[contenthash].css',
     }),
