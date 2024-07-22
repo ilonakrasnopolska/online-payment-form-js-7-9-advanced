@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin")
 const path = require('path')
 
 module.exports = (env) => ({
@@ -47,9 +48,25 @@ module.exports = (env) => ({
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Payment form',
+      template: path.resolve(__dirname, 'index.html'),
+    }),
     new MiniCssExtractPlugin({
       filename: 'main.[contenthash].css',
+    }),
+    // Ваши существующие плагины
+    new ImageMinimizerPlugin({
+      minimizer: {
+        implementation: ImageMinimizerPlugin.sharpMinify,
+        options: {
+          encodeOptions: {
+            png: {
+              quality: 75,
+            },
+          },
+        },
+      },
     }),
   ],
   devServer: {
