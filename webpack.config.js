@@ -6,7 +6,7 @@ const path = require('path')
 module.exports = (env) => ({
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    // path: path.resolve(__dirname, './dist'),
     filename: 'main.[contenthash].js',
   },
   module: {
@@ -48,10 +48,12 @@ module.exports = (env) => ({
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Payment form',
-      template: path.resolve(__dirname, 'index.html'),
-    }),
+    new HtmlWebpackPlugin(
+      {
+        template: path.resolve(__dirname, 'index.html'),
+        filename: 'index.[contenthash].html',
+      }
+    ),
     new MiniCssExtractPlugin({
       filename: 'main.[contenthash].css',
     }),
