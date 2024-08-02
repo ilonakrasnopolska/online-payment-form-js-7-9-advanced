@@ -14,4 +14,12 @@ module.exports = {
         indent: ['error', 4, { SwitchCase: 1 }],
         'prettier/prettier': 'error',
     },
+    overrides: [
+        {
+            files: ['**/*.test.js'],
+            env: {
+                jest: true,
+            },
+        },
+    ],
 }

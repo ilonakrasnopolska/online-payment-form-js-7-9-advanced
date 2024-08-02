@@ -47,7 +47,7 @@ export function areAllFieldsValid(fields) {
 
     return fieldsArray.every((field) => {
         const { id, value } = field // Деструктурируем dataset для получения required
-       switch (id) {
+        switch (id) {
             case 'cardNumber':
                 return validateCreditCard(value) === true
             case 'expiryDate':

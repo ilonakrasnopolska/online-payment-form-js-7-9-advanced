@@ -12,4 +12,5 @@ export function buildForm(container) {
     inputValidationHandler()
     // //add event listener's to button and reset form by click
     sendFormByClick(form)
+    return form
 }
